@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample webpage</title>
+</head>
+
+<body>
+    <header>
+        <h1><u>St Mary's higher secondary school</u></h1>
+        <nav>
+            <a href="non">Home</a>
+            <a href="non">Contact</a>
+            <a href="courses.html">Courses</a>
+            <a href="non">about</a>
+            <a href="non">help</a>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <img src="sampleImg.png" alt="">
+            <p> <i>St. Mary's Higher Secondary School is a primary and secondary school
+                    in Thiruvananthapuram,
+                    India.<br>
+                    It is founded in 1940 by Archbishop Geevarghese Mar Ivanios. It is
+                    considered one of the largest
+                    schools
+                    <br>
+                    in Asia, with the total number of students exceeding 14,000.</i></p>
+        </article>
+        <section>
+            <h2>Register</h2>
+            <form action="/" id="form">
+                <div class="input-control">
+                    <label for="firstName">Enter First names <span>*</span> : </label>
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name " required><br><br>
+                    <span class="error"></span>
+                </div>
+                <div class="input-control">
+                    <label for="lastName">Enter Last name <span>*</span> : </label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name " required><br><br>
+                    <span class="error"></span>
+                </div>
+                <div class="input-control">
+                    <label for="dob">Enter date of birth <span>*</span> : </label>
+                    <input type="date" name="dob" id="dateOfBirth" max="2024-08-23" required><br><br>
+                    <span class="error"></span>
+                </div>
+                <div class="input-control">
+                    <label for="address">Enter your address <span>*</span> : </label>
+                    <textarea name="address">Enter your address </textarea><br><br>
+                    <span class="error"></span>
+                </div>
+                <div class="input-control">
+                    <label for="gender">Gender <span>*</span> : </label>
+                    <label for="male">Male : </label>
+                    <input type="radio" name="gender" value="male" id="gender" required>
+                    <label for="female">Female : </label>
+                    <input type="radio" name="gender" value="female" id="gender" required><br><br>
+                    <span class="error"></span>
+                </div>
+                <div class="input-control">
+                    <label for="phoneNumber">Phone number <span>*</span> :</label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" placeholder=
+                    "phone number" required><br><br>
+                    <span class="error"></span>
+                </div>
+                <div class="input-control">
+                    <label for="district">District <span>*</span> </label>
+                    <select name="district" id="district" required>
+                        <option label="-Select One- "> </option>
+                        <option value="trivandrum"> Trivandrum </option>
+                        <option value="kollam"> Kollam </option>
+                    </select>
+                </div>
+                <div>
+                    <br><br><button type="submit" onclick="myValidate()">Register</button>
+                    &nbsp;
+                    <a href="noSource">Already registered</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+<script src="sampleOne.js"></script>
+
+</html>
