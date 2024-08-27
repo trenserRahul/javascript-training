@@ -89,23 +89,34 @@ span {
     color: red;
 }
 
-.input-control input,textarea , select {
+.input-control {
+    margin: 20px;
+}
+
+.input-control input,
+textarea,
+select {
     border: 2px solid rgb(20, 175, 223);
 }
 
-.input-control input , textarea:focus {
+.input-control input,
+textarea:focus {
     outline: 0;
 }
 
 .error {
-    color: red;
-    font-size: 10px;
+    color: rgb(255, 0, 0);
+    font-size: 12px;
 }
 
-.input-control.success input {
+.input-control.successFunction input {
     border-color: green;
 }
 
-.input-control.error input {
+.input-control.errorFunction input {
+    border-color: red;
+}
+
+.input-control.errorFunction textarea {
     border-color: red;
 }

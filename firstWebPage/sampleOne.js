@@ -1,46 +1,77 @@
-const form = document.getElementById('form-registration');
+const form = document.getElementById('form');
 const firstNameElement = document.getElementById("firstName");
 const lastNameElement = document.getElementById("lastName");
 const phoneNumberElement = document.getElementById("phoneNumber");
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log("test");
-    myValidate();
-})
+const addressElement = document.querySelector("#address");
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        form.submit();
+    })
+}
 
 function myValidate() {
-    let counter = 0;
-    let reg= /^[a-zA-Z ]{2,30}$/;
     let firstName = firstNameElement.value.trim();
     let lastName = lastNameElement.value.trim();
     let phoneNumber = phoneNumberElement.value.trim();
-    if (10 != phoneNumber.length) {
-        setErrorMessage(phoneNumberElement, "invalid Phone Number");
-    }
-    else {
-        setSuccess(phoneNumberElement);
-    }
-    if ( !reg.test(firstName)) {
-        setErrorMessage(firstNameElement, "invalid name");
-    }
-    else {
-        setSuccess(firstNameElement);
-    }
+    let address = addressElement.value.trim();
+    validatePhoneNumber(phoneNumber);
+    validateName(firstName, "firstName");
+    validateName(lastName, "lastName");
+    validateAddress(address);
+
 }
 
-function setErrorMessage(element, message) {
+function setError(element, message) {
     const inputcontrol = element.parentElement;
     const errorElement = inputcontrol.querySelector(".error");
-    console.log(errorElement);
     errorElement.innerText = message;
-    inputcontrol.classList.add('error');
-    inputcontrol.classList.remove('success');
+    inputcontrol.classList.add('errorFunction');
+    inputcontrol.classList.remove('successFunction');
 }
 
 function setSuccess(element) {
     const inputcontrol = element.parentElement;
     const errorElement = inputcontrol.querySelector(".error");
     errorElement.innerText = "";
-    inputcontrol.classList.add('success');
-    inputcontrol.classList.remove('error');
+    inputcontrol.classList.add('successFunction');
+    inputcontrol.classList.remove('errorFunction');
+}
+
+function validatePhoneNumber(phoneNumber) {
+    if (10 != phoneNumber.length) {
+        setError(phoneNumberElement, "invalid Phone Number");
+    }
+    else {
+        setSuccess(phoneNumberElement);
+    }
+}
+
+function validateName(name, text) {
+    let reg = /^[a-zA-Z ]{2,30}$/;
+    if (text == "firstName") {
+        if (!reg.test(name)) {
+            setError(firstNameElement, "Invalid First Name");
+        }
+        else {
+            setSuccess(firstNameElement);
+        }
+    }
+    else if (text == "lastName") {
+        if (!reg.test(name)) {
+            setError(lastNameElement, "Invalid Last Name");
+        }
+        else {
+            setSuccess(lastNameElement);
+        }
+    }
+}
+
+function validateAddress(address) {
+    if (address == "") {
+        setError(addressElement, "Invalid Address");
+    }
+    else {
+        setSuccess(addressElement);
+    }
 }
