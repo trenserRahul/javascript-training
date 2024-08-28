@@ -3,6 +3,11 @@ body {
     background-color: rgb(221, 210, 220);
 }
 
+input,
+textarea {
+    margin: 2px 4px;
+}
+
 th,
 td {
     background-color: rgb(185, 229, 229);
@@ -89,8 +94,9 @@ span {
     color: red;
 }
 
-.input-control {
+.parent-control {
     margin: 20px;
+    display: flex;
 }
 
 .input-control input,
@@ -118,5 +124,9 @@ textarea:focus {
 }
 
 .input-control.errorFunction textarea {
+    border-color: red;
+}
+
+.input-control.errorFunction select {
     border-color: red;
 }
