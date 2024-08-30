@@ -9,33 +9,56 @@
 
 <body>
     <main>
-        <table>
-            <tr>
-                <th>Form Details</th>
-            </tr>
-            <tr>
-                <td>
-                    <p id="first-name"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p id="last-name"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p id="dateOfBirth"></p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p id="phone-number"></p>
-                </td>
-            </tr>
-        </table>
+        <section>
+            <table>
+                <tr>
+                    <th colspan="5">Form Details</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p>First Name </p>
+                    </td>
+                    <td>
+                        <p>Last Name </p>
+                    </td>
+                    <td>
+                        <p>Date Of Birth </p>
+                    </td>
+                    <td>
+                        <p>District </p>
+                    </td>
+                    <td>
+                        <p>Phone Number </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p id="first-name"></p>
+                    </td>
+                    <td>
+                        <p id="last-name"></p>
+                    </td>
+                    <td>
+                        <p id="dateOfBirth"></p>
+                    </td>
+                    <td>
+                        <p id="district"></p>
+                    </td>
+                    <td>
+                        <p id="phone-number"></p>
+                    </td>
+            </table>
+        </section>
     </main>
-    <script src="sampleOne.js"></script>
+    <script>
+        (function () {
+            document.getElementById("first-name").innerHTML = localStorage.getItem("firstName");
+            document.getElementById("last-name").innerHTML = localStorage.getItem("lastName");
+            document.getElementById("dateOfBirth").innerHTML = localStorage.getItem("dateOfBirth");
+            document.getElementById("phone-number").innerHTML = localStorage.getItem("phoneNumber");
+            document.getElementById("district").innerHTML = localStorage.getItem("district");
+        })()
+    </script>
 </body>
 
 </html>

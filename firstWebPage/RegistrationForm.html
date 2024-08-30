@@ -21,7 +21,7 @@
 
     <main>
         <article>
-            <img src="C:\Users\1550\Training-Javascript\javascript-training\Asset\sampleImg.png" alt="">
+            <img src="..\Asset\sampleImg.png" alt="">
             <p> <i>St. Mary's Higher Secondary School is a primary and secondary school
                     in Thiruvananthapuram,
                     India.<br>
@@ -35,29 +35,28 @@
             <h2>Register</h2>
             <form action="DisplayForm.html" id="form" onsubmit="getFormDetails()">
                 <div class="parent-control">
-                    <label for="firstName">Enter First names <span>*</span> : </label>
+                    <label for="firstName">First Name <span>*</span> : </label>
                     <div class="input-control">
-                        <input type="text" name="firstName" id="firstName" placeholder="First Name " required> <br>
-                        <span class="error"></span>
-                    </div>
-
-                </div>
-                <div class="parent-control">
-                    <label for="lastName">Enter Last name <span>*</span> : </label>
-                    <div class="input-control">
-                        <input type="text" name="lastName" id="lastName" placeholder="Last Name " required> <br>
+                        <input type="text" name="firstName" id="firstName" placeholder=" Enter First Name "> <br>
                         <span class="error"></span>
                     </div>
                 </div>
                 <div class="parent-control">
-                    <label for="dob">Enter date of birth <span>*</span> : </label>
+                    <label for="lastName">Last Name <span>*</span> : </label>
                     <div class="input-control">
-                        <input type="date" name="dob" id="dateOfBirth" max="2024-08-23" required><br>
+                        <input type="text" name="lastName" id="lastName" placeholder="Enter Last Name "> <br>
                         <span class="error"></span>
                     </div>
                 </div>
                 <div class="parent-control">
-                    <label for="address">Enter your address <span>*</span> : </label>
+                    <label for="dob">Date Of Birth <span>*</span> : </label>
+                    <div class="input-control">
+                        <input type="date" name="dob" id="dateOfBirth" max="2024-08-23"><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="address">Address <span>*</span> : </label>
                     <div class="input-control">
                         <textarea id="address" placeholder="Enter your address here..."></textarea><br>
                         <span class="error"></span>
@@ -66,35 +65,34 @@
                 <div class="parent-control">
                     <label for="gender">Gender <span>*</span> : </label>
                     <label for="male">Male : </label>
-                    <input type="radio" name="gender" value="male" id="gender" required>
+                    <input type="radio" name="gen" value="male" id="gender">
                     <label for="female">Female : </label>
                     <div class="input-control">
-                        <input type="radio" name="gender" value="female" id="gender" required><br>
+                        <input type="radio" name="gend" value="female" id="gende"><br>
                         <span class="error"></span>
                     </div>
                 </div>
                 <div class="parent-control">
-                    <label for="phoneNumber">Phone number <span>*</span> :</label>
+                    <label for="phoneNumber">Phone Number <span>*</span> :</label>
                     <div class="input-control">
-                        <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="phone number" required><br>
+                        <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="phone number"><br>
                         <span class="error"></span>
                     </div>
                 </div>
                 <div class="parent-control">
                     <label for="district">District <span>*</span> </label>
                     <div class="input-control">
-                        <select name="district" id="district" required>
+                        <select name="district" id="district">
                             <option label="-Select One- "> </option>
                             <option value="trivandrum"> Trivandrum </option>
                             <option value="kollam"> Kollam </option>
                         </select><br>
                         <span class="error"></span>
                     </div>
-
                 </div>
                 </div>
                 <div>
-                    <br><br><button type="submit" onclick="validateRegistrationForm()">Register</button>
+                    <br><br><button type="submit">Register</button>
                     &nbsp;
                     <a href="noSource">Already registered</a>
                 </div>

@@ -5,10 +5,10 @@ const phoneNumberElement = document.getElementById("phoneNumber");
 const addressElement = document.querySelector("#address");
 const districtElement = document.getElementById("district");
 const dateElement = document.getElementById("dateOfBirth");
+const genderElement = document.getElementById("gender");
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        form.submit();
     })
 }
 
@@ -19,12 +19,16 @@ function validateRegistrationForm() {
     let address = addressElement.value.trim();
     let district = districtElement.value.trim();
     let dateOfBirth = dateElement.value.trim();
-    validatePhoneNumber(phoneNumber);
-    validateName(firstName, "firstName");
-    validateName(lastName, "lastName");
-    validateAddress(address);
-    validateDistrict(district);
-    validateDate(dateOfBirth);
+    let phoneNumberFlag = validatePhoneNumber(phoneNumber);
+    let firstNameFlag = validateName(firstName, "firstName");
+    let lastNameFlag = validateName(lastName, "lastName");
+    let addressFlag = validateAddress(address);
+    let districtFlag = validateDistrict(district);
+    let dateFlag = validateDate(dateOfBirth);
+    let genderFlag = validateGender();
+    if (phoneNumberFlag && firstNameFlag && lastNameFlag && addressFlag && dateFlag) {
+        form.submit();
+    }
 }
 
 function indicationForValidation(element, message) {
@@ -46,15 +50,18 @@ function validateName(name, text) {
     if (text == "firstName") {
         if (!reg.test(name)) {
             indicationForValidation(firstNameElement, "Invalid First Name");
+            return false;
         } else {
             indicationForValidation(firstNameElement, "success");
-
+            return true;
         }
     } else if (text == "lastName") {
         if (!reg.test(name)) {
             indicationForValidation(lastNameElement, "Invalid Last Name");
+            return false;
         } else {
             indicationForValidation(lastNameElement, "success");
+            return true;
         }
     }
 }
@@ -62,46 +69,56 @@ function validateName(name, text) {
 function validateDate(dateIfBirth) {
     if (dateIfBirth == "") {
         indicationForValidation(dateElement, "Date of birth required");
+        return false;
     } else {
         indicationForValidation(dateElement, "success");
+        return true;
     }
 }
 
 function validatePhoneNumber(phoneNumber) {
     if (10 != phoneNumber.length) {
         indicationForValidation(phoneNumberElement, "Invalid Phone Number");
+        return false;
     } else {
         indicationForValidation(phoneNumberElement, "success");
+        return true;
     }
 }
 
 function validateAddress(address) {
     if (address == "") {
         indicationForValidation(addressElement, "Invalid Address");
+        return false;
     } else {
         indicationForValidation(addressElement, "success");
+        return true;
     }
 }
 
 function validateDistrict(district) {
     if (district == "") {
         indicationForValidation(districtElement, "Select District");
+        return false;
     } else {
         indicationForValidation(districtElement, "success");
+        return true;
     }
 }
 
 function getFormDetails() {
+    validateRegistrationForm();
     let firstName = firstNameElement.value.trim();
     let lastName = lastNameElement.value.trim();
     let phoneNumber = phoneNumberElement.value.trim();
     let address = addressElement.value.trim();
     let district = districtElement.value.trim();
     let dateOfBirth = dateElement.value.trim();
-    sessionStorage.setItem("firstName", firstName);
-    sessionStorage.setItem("lastName", lastName);
-    sessionStorage.setItem("dateOfBirth", dateOfBirth);
-    sessionStorage.setItem("address", address);
-    sessionStorage.setItem("phoneNumber", phoneNumber);
-    sessionStorage.setItem("district", district);
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
+    localStorage.setItem("dateOfBirth", dateOfBirth);
+    localStorage.setItem("address", address);
+    localStorage.setItem("phoneNumber", phoneNumber);
+    localStorage.setItem("district", district);
 }
+
