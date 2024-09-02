@@ -8,53 +8,78 @@
 </head>
 
 <body>
+    <header>
+        <h1><u>St Mary's higher secondary school</u></h1>
+        <nav>
+            <a href="non">Home</a>
+            <a href="non">Contact</a>
+            <a href="Courses.html">Courses</a>
+            <a href="non">about</a>
+            <a href="non">help</a>
+        </nav>
+    </header>
+
     <main>
         <section>
-            <table>
-                <tr>
-                    <th colspan="5">Form Details</th>
-                </tr>
-                <tr>
-                    <td>
-                        <p>First Name </p>
-                    </td>
-                    <td>
-                        <p>Last Name </p>
-                    </td>
-                    <td>
-                        <p>Date Of Birth </p>
-                    </td>
-                    <td>
-                        <p>District </p>
-                    </td>
-                    <td>
-                        <p>Phone Number </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p id="first-name"></p>
-                    </td>
-                    <td>
-                        <p id="last-name"></p>
-                    </td>
-                    <td>
-                        <p id="dateOfBirth"></p>
-                    </td>
-                    <td>
-                        <p id="district"></p>
-                    </td>
-                    <td>
-                        <p id="phone-number"></p>
-                    </td>
-            </table>
+                <table>
+                    <tr>
+                        <th colspan="7">Form Details</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>First Name </p>
+                        </td>
+                        <td>
+                            <p>Last Name </p>
+                        </td>
+                        <td>
+                            <p>Date Of Birth </p>
+                        </td>
+                        <td>
+                            <p>Gender </p>
+                        </td>
+                        <td>
+                            <p>Address </p>
+                        </td>
+                        <td>
+                            <p>District </p>
+                        </td>
+                        <td>
+                            <p>Phone Number </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p id="first-name"></p>
+                        </td>
+                        <td>
+                            <p id="last-name"></p>
+                        </td>
+                        <td>
+                            <p id="date-Of-Birth"></p>
+                        </td>
+                        <td>
+                            <p id="gender"></p>
+                        </td>
+                        <td>
+                            <p id="address"></p>
+                        </td>
+                        <td>
+                            <p id="district"></p>
+                        </td>
+                        <td>
+                            <p id="phone-number"></p>
+                        </td>
+                </table>
         </section>
     </main>
     <script>
         (function () {
             document.getElementById("first-name").innerHTML = localStorage.getItem("firstName");
             document.getElementById("last-name").innerHTML = localStorage.getItem("lastName");
-            document.getElementById("dateOfBirth").innerHTML = localStorage.getItem("dateOfBirth");
+            document.getElementById("date-Of-Birth").innerHTML = localStorage.getItem("dateOfBirth");
+            document.getElementById("gender").innerHTML = localStorage.getItem("gender");
+            document.getElementById("address").innerHTML = localStorage.getItem("address");
             document.getElementById("phone-number").innerHTML = localStorage.getItem("phoneNumber");
             document.getElementById("district").innerHTML = localStorage.getItem("district");
         })()

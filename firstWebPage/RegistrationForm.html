@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample webpage</title>
+    <title>Registration page</title>
 </head>
 
 <body>
@@ -64,11 +64,11 @@
                 </div>
                 <div class="parent-control">
                     <label for="gender">Gender <span>*</span> : </label>
-                    <label for="male">Male : </label>
-                    <input type="radio" name="gen" value="male" id="gender">
-                    <label for="female">Female : </label>
                     <div class="input-control">
-                        <input type="radio" name="gend" value="female" id="gende"><br>
+                        <label for="male">Male : </label>
+                        <input type="radio" name="gender" value="male" id="gender-male">
+                        <label for="female">Female : </label>
+                        <input type="radio" name="gender" value="female" id="gender-female"><br>
                         <span class="error"></span>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="parent-control">
-                    <label for="district">District <span>*</span> </label>
+                    <label for="district">District : <span>*</span> </label>
                     <div class="input-control">
                         <select name="district" id="district">
                             <option label="-Select One- "> </option>

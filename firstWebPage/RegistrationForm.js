@@ -5,7 +5,7 @@ const phoneNumberElement = document.getElementById("phoneNumber");
 const addressElement = document.querySelector("#address");
 const districtElement = document.getElementById("district");
 const dateElement = document.getElementById("dateOfBirth");
-const genderElement = document.getElementById("gender");
+
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -26,7 +26,7 @@ function validateRegistrationForm() {
     let districtFlag = validateDistrict(district);
     let dateFlag = validateDate(dateOfBirth);
     let genderFlag = validateGender();
-    if (phoneNumberFlag && firstNameFlag && lastNameFlag && addressFlag && dateFlag) {
+    if (phoneNumberFlag && firstNameFlag && lastNameFlag && addressFlag && dateFlag && genderFlag) {
         form.submit();
     }
 }
@@ -106,19 +106,43 @@ function validateDistrict(district) {
     }
 }
 
+function validateGender() {
+    const genderElementFemale = document.getElementById("gender-female");
+    const genderElementMale = document.getElementById("gender-male");
+    if (genderElementFemale.checked) {
+        indicationForValidation(genderElementFemale, "success");
+        return true;
+    } else if (genderElementMale.checked) {
+        indicationForValidation(genderElementMale, "success");
+        return true;
+    }
+    else {
+        indicationForValidation(genderElementFemale, "Select gender");
+        return false;
+    }
+}
+
 function getFormDetails() {
     validateRegistrationForm();
+    let gender;
     let firstName = firstNameElement.value.trim();
     let lastName = lastNameElement.value.trim();
     let phoneNumber = phoneNumberElement.value.trim();
     let address = addressElement.value.trim();
     let district = districtElement.value.trim();
     let dateOfBirth = dateElement.value.trim();
+    if (document.getElementById("gender-female").checked) {
+        gender = document.getElementById("gender-female").value;
+    } else {
+        gender = document.getElementById("gender-male").value;
+        console.log(gender);
+    }
     localStorage.setItem("firstName", firstName);
     localStorage.setItem("lastName", lastName);
     localStorage.setItem("dateOfBirth", dateOfBirth);
     localStorage.setItem("address", address);
     localStorage.setItem("phoneNumber", phoneNumber);
     localStorage.setItem("district", district);
+    localStorage.setItem("gender", gender);
 }
 
