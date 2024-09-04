@@ -26,7 +26,7 @@ function validateRegistrationForm() {
     let districtFlag = validateDistrict(district);
     let dateFlag = validateDate(dateOfBirth);
     let genderFlag = validateGender();
-    if (phoneNumberFlag && firstNameFlag && lastNameFlag && addressFlag && dateFlag && genderFlag) {
+    if (phoneNumberFlag && firstNameFlag && lastNameFlag && addressFlag && dateFlag && genderFlag && districtFlag) {
         form.submit();
     }
 }
@@ -115,8 +115,7 @@ function validateGender() {
     } else if (genderElementMale.checked) {
         indicationForValidation(genderElementMale, "success");
         return true;
-    }
-    else {
+    } else {
         indicationForValidation(genderElementFemale, "Select gender");
         return false;
     }
@@ -146,3 +145,12 @@ function getFormDetails() {
     localStorage.setItem("gender", gender);
 }
 
+(function () {
+    document.getElementById("first-name").innerHTML = localStorage.getItem("firstName");
+    document.getElementById("last-name").innerHTML = localStorage.getItem("lastName");
+    document.getElementById("date-Of-Birth").innerHTML = localStorage.getItem("dateOfBirth");
+    document.getElementById("gender").innerHTML = localStorage.getItem("gender");
+    document.getElementById("address").innerHTML = localStorage.getItem("address");
+    document.getElementById("phone-number").innerHTML = localStorage.getItem("phoneNumber");
+    document.getElementById("district").innerHTML = localStorage.getItem("district");
+})()

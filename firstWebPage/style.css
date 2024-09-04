@@ -47,8 +47,8 @@ h2 {
 }
 
 section {
-    margin-top: 10%;
-    padding-left: 35%;
+     padding-top: 10%;
+    padding-left: 30%;
 }
 
 button:hover {
@@ -92,6 +92,7 @@ header {
     background-color: brown;
     width: 100%;
     position: fixed;
+    margin-top:0%;
 }
 
 p {
