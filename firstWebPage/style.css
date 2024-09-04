@@ -1,18 +1,25 @@
 body {
     margin: 0;
-    background-color: lightgray;
+    background-color: #F1F1F1;
 }
 
-input,
+label{
+    width: 25%;
+}
+
+input[type="text"],input[type="tel"],
 textarea {
     margin: 2px 4px;
+    border-radius: 4px;
+    width: 250px;
+    height: 25px;
 }
 
 table {
     margin: 0;
     border-collapse: collapse;
     align-items: center;
-    background-color:lightyellow ;
+    background-color: lightyellow;
 }
 
 th,
@@ -23,6 +30,7 @@ td {
     border-collapse: collapses;
     text-align: center;
 }
+
 th {
     font-size: large;
     font-weight: bold;
@@ -36,18 +44,21 @@ table p {
 
 
 h1 {
-    text-align: center;
-    color: white;
+    text-align: left;
+    color: rgb(14, 32, 219);
+    text-decoration: none;
     font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h2 {
-    padding-left: 20%;
+    padding-top: 0%;
+    padding-left: 25%;
     color: rgb(3, 3, 14);
 }
 
 section {
-     padding-top: 10%;
+    padding-top: 8%;
     padding-left: 30%;
 }
 
@@ -59,22 +70,31 @@ button:hover {
 }
 
 button {
-   align-self: center;
+    align-self: center;
 }
 
 img {
     margin: 5px;
     width: 100%;
-    height: 50%
+    height: 20%
+}
+
+#logo {
+    width: 4%;
+    height: 6%;
+    margin: 1px;
 }
 
 article {
-    text-align: center;
+    padding-top: 9%;
+    text-align: center; 
 }
 
 nav a {
+    text-decoration: none;
     padding: 10px;
     color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav a:hover {
@@ -83,36 +103,72 @@ nav a:hover {
 }
 
 nav {
-    background-color: rgb(51, 51, 243);
+    background-color: rgb(43, 76, 236);
     margin: 0px;
     padding: 8px;
 }
 
+#btn-logout {
+    align-items:flex-end;
+}
+
+#marquee-div {
+    margin: 0;
+    background-color: #A6D1E6;
+    padding: 10px;
+    color: black;
+}
+
+header div {
+    display: flex;
+}
+
 header {
-    background-color: brown;
+    background-color: white;
     width: 100%;
     position: fixed;
-    margin-top:0%;
+    margin-top: 0%;
 }
 
 p {
-    color: rgb(9, 9, 132);
+    color: #0366b6;
     font-weight: bold;
+    font-size: large;
+}
+
+.display-session {
+    padding: 20% 30%;
+}
+
+.display-session label {
+    width: 30%;
 }
 
 form {
     margin-bottom: 10%;
     margin-left: 0%;
     margin-right: 40%;
+    margin-top: 0;
     padding: 20px;
-    background-color: rgb(202, 209, 210);
-    box-shadow: 10px 10px grey;
+    background-color: #9BBEC8;
+    box-shadow:  6px 6px 15px  grey;
 }
 
-@media screen and (max-width:420px) {
-    body {
-        background-color: rgb(92, 147, 161);
-    }
+@media screen and (max-width:600px) {
+   .label-row {
+    background-color: #0366b6;
+    display: flex;
+    flex-direction: row;
+    width:25% ;
+    margin: 6px;
+   } 
+   .input-row {
+    background-color: #03b60f;
+    display: flex;
+    flex-direction: row;
+    width:25% ;
+    margin: 6px;
+   }
 }
 
 span {

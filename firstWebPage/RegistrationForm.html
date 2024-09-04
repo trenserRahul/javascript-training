@@ -9,14 +9,22 @@
 
 <body>
     <header>
-        <h1><u>St Mary's higher secondary school</u></h1>
+        <div>
+            <img src="..\Asset\Logo.png" alt="" id="logo">
+            <h1>St Mary's Higher Secondary School</h1>
+        </div>
         <nav>
             <a href="non">Home</a>
             <a href="non">Contact</a>
             <a href="Courses.html">Courses</a>
             <a href="non">about</a>
             <a href="non">help</a>
+            <a href="non" id="btn-logout">LogOut</a>
         </nav>
+          <div id="marquee-div">
+            <marquee behavior="slide" direction="left" loop="5"> Higher Secondary Admission Starts From 05/09/2024 to 15
+                /09/2024 . The Candidates Can Register Online through admissison.dge.kerala.gov.in </marquee>
+        </div>
     </header>
 
     <main>
@@ -32,8 +40,8 @@
                     in Asia, with the total number of students exceeding 14,000.</i></p>
         </article>
         <section>
-            <h2>Register</h2>
             <form action="DisplayForm.html" id="form" onsubmit="getFormDetails()">
+                <h2>Register</h2>
                 <div class="parent-control">
                     <label for="firstName">First Name <span>*</span> : </label>
                     <div class="input-control">
@@ -92,9 +100,9 @@
                 </div>
                 </div>
                 <div>
-                    <br><br><button type="submit">Register</button>
+                    <br><button type="submit">SignUp</button>
                     &nbsp;
-                    <a href="noSource">Already registered</a>
+                    <a href="LoginForm.html">Already registered</a>
                 </div>
             </form>
         </section>
