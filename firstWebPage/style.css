@@ -1,18 +1,27 @@
 body {
     margin: 0;
     background-color: #F1F1F1;
+    align-content: center;
 }
 
 label{
-    width: 25%;
+    width: 28%;
+    font-family:Arial, Helvetica, sans-serif ;
+    font-size: large;
 }
 
-input[type="text"],input[type="tel"],
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="date"],
+select,
 textarea {
     margin: 2px 4px;
     border-radius: 4px;
     width: 250px;
     height: 25px;
+    font-size: 14px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 table {
@@ -49,12 +58,13 @@ h1 {
     text-decoration: none;
     font-size: xx-large;
     font-family: Arial, Helvetica, sans-serif;
+    padding-left: 2%;
 }
 
 h2 {
     padding-top: 0%;
-    padding-left: 25%;
     color: rgb(3, 3, 14);
+    text-align: center;
 }
 
 section {
@@ -71,6 +81,18 @@ button:hover {
 
 button {
     align-self: center;
+    border-radius: 8px;
+    background-color: #2e95e4;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: medium;
+    width: 30%;
+}
+
+#signup-btn-div {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    text-align: center;
 }
 
 img {
@@ -109,7 +131,8 @@ nav {
 }
 
 #btn-logout {
-    align-items:flex-end;
+    justify-content: flex-end;
+    text-decoration: none;
 }
 
 #marquee-div {
@@ -121,6 +144,8 @@ nav {
 
 header div {
     display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 header {
@@ -141,7 +166,7 @@ p {
 }
 
 .display-session label {
-    width: 30%;
+    width: 60%;
 }
 
 form {
@@ -173,6 +198,10 @@ form {
 
 span {
     color: red;
+}
+
+#login-error {
+    padding-left: 30%;
 }
 
 .parent-control {

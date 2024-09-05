@@ -106,6 +106,19 @@ function validateDistrict(district) {
     }
 }
 
+function validateLogin(event) {
+    const userNameInput = document.getElementById("user-name-login").value;
+    const passwordInput = document.getElementById("password-login").value;
+    const loginForm = document.getElementById("login-form").value;
+    if ("Username" === userNameInput && "PasswordLogin" === passwordInput) {
+        loginForm.submit();
+    } else {
+            event.preventDefault();
+            const loginError = document.getElementById("login-error");
+            loginError.innerHTML="Invalid Username / password";
+    }
+}
+
 function validateGender() {
     const genderElementFemale = document.getElementById("gender-female");
     const genderElementMale = document.getElementById("gender-male");
