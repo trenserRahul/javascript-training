@@ -3,6 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Header.css">
     <link rel="stylesheet" href="style.css">
     <title>LogIn Page</title>
 </head>
@@ -12,13 +13,13 @@
     <header>
         <div>
             <img src="..\Asset\Logo.png" alt="" id="logo">
-            <h1>St Mary's Higher Secondary School</h1>
+            <h2 class="header-heading">St Mary's Higher Secondary School</h2>
         </div>
         <nav>
             <a href="non">Contact</a>
             <a href="Courses.html">Courses</a>
-            <a href="non">about</a>
-            <a href="non">help</a>
+            <a href="non">About</a>
+            <a href="non">Help</a>
         </nav>
         <div id="marquee-div">
             <marquee behavior="slide" direction="left" loop="2"> Higher Secondary Admission Starts From 05/09/2024 to 15
@@ -28,7 +29,7 @@
 
     <main>
         <section class="display-session">
-            <form action="RegistrationForm.html" id="login-form" onsubmit="validateLogin(event)">
+            <form action="HomePage.html" id="login-form" onsubmit="validateLogin(event)">
                 <h2>Log In</h2>
                 <div class="parent-control">
                     <label for="user-name">User Name : </label>
@@ -36,14 +37,14 @@
                 </div>
                 <div class="parent-control">
                     <label for="password">Password : </label>
-                    <input type="password" name="password" id="password-login" placeholder="Enter password" >
+                    <input type="password" name="password" id="password-login" placeholder="Enter password">
                 </div>
                 <div>
                     <span id="login-error"></span>
                 </div>
-                <div id="signup-btn-div">
+                <div id="btn-div">
                     <button type="submit" id="login-btn">Log In</button>
-                    &nbsp;&nbsp;
+                    &nbsp;
                     <a href="RegistrationForm.html"> SignUp</a>
                 </div>
             </form>

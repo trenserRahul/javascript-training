@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="Header.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration page</title>
@@ -11,15 +12,14 @@
     <header>
         <div>
             <img src="..\Asset\Logo.png" alt="" id="logo">
-            <h1>St Mary's Higher Secondary School</h1>
-            <span><a href="non" id="btn-logout">LogOut</a></span>
+            <h2 class="header-heading">St Mary's Higher Secondary School</h2>
         </div>
         <nav>
             <a href="RegistrationForm.html">Home</a>
             <a href="non">Contact</a>
             <a href="Courses.html">Courses</a>
-            <a href="non">about</a>
-            <a href="non">help</a>
+            <a href="non">About</a>
+            <a href="non">Help</a>
         </nav>
         <div id="marquee-div">
             <marquee behavior="slide" direction="left" loop="5"> Higher Secondary Admission Starts From 05/09/2024 to 15
@@ -39,7 +39,7 @@
                     <br>
                     in Asia, with the total number of students exceeding 14,000.</i></p>
         </article>
-        <section>
+        <section class="display-session">
             <form action="DisplayForm.html" id="form" onsubmit="getFormDetails()">
                 <h2>Register</h2>
                 <div class="parent-control">
@@ -99,8 +99,8 @@
                     </div>
                 </div>
                 </div>
-                <div id="signup-btn-div">
-                    <br><button type="submit">SignUp</button>
+                <div id="btn-div">
+                    <br><button type="submit">SignUp</button>&nbsp;
                     <a href="LoginForm.html">Already registered</a>
                 </div>
             </form>

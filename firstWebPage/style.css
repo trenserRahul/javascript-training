@@ -4,9 +4,8 @@ body {
     align-content: center;
 }
 
-label{
-    width: 28%;
-    font-family:Arial, Helvetica, sans-serif ;
+label {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: large;
 }
 
@@ -18,10 +17,11 @@ select,
 textarea {
     margin: 2px 4px;
     border-radius: 4px;
-    width: 250px;
+    width: 300px;
     height: 25px;
     font-size: 14px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0;
 }
 
 table {
@@ -51,16 +51,6 @@ table p {
     padding: 10px;
 }
 
-
-h1 {
-    text-align: left;
-    color: rgb(14, 32, 219);
-    text-decoration: none;
-    font-size: xx-large;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-left: 2%;
-}
-
 h2 {
     padding-top: 0%;
     color: rgb(3, 3, 14);
@@ -68,8 +58,10 @@ h2 {
 }
 
 section {
-    padding-top: 8%;
-    padding-left: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover {
@@ -82,17 +74,19 @@ button:hover {
 button {
     align-self: center;
     border-radius: 8px;
-    background-color: #2e95e4;
-    font-family:Arial, Helvetica, sans-serif;
+    background-color: #c8d1d8;
+    ;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
     width: 30%;
 }
 
-#signup-btn-div {
+#btn-div {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     text-align: center;
+    padding-bottom: 5px;
 }
 
 img {
@@ -102,14 +96,15 @@ img {
 }
 
 #logo {
-    width: 4%;
-    height: 6%;
+    padding-left: 5px;
+    width: 70px;
+    height: 70px;
     margin: 1px;
 }
 
 article {
     padding-top: 9%;
-    text-align: center; 
+    text-align: center;
 }
 
 nav a {
@@ -130,39 +125,15 @@ nav {
     padding: 8px;
 }
 
-#btn-logout {
-    justify-content: flex-end;
-    text-decoration: none;
-}
-
-#marquee-div {
-    margin: 0;
-    background-color: #A6D1E6;
-    padding: 10px;
-    color: black;
-}
-
-header div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-header {
-    background-color: white;
-    width: 100%;
-    position: fixed;
-    margin-top: 0%;
-}
-
 p {
     color: #0366b6;
     font-weight: bold;
     font-size: large;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .display-session {
-    padding: 20% 30%;
+    padding: 12% 10%;
 }
 
 .display-session label {
@@ -170,30 +141,46 @@ p {
 }
 
 form {
-    margin-bottom: 10%;
-    margin-left: 0%;
-    margin-right: 40%;
-    margin-top: 0;
-    padding: 20px;
+    padding: 2% 0 0 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
     background-color: #9BBEC8;
-    box-shadow:  6px 6px 15px  grey;
+    box-shadow: 6px 6px 15px grey;
 }
 
-@media screen and (max-width:600px) {
-   .label-row {
-    background-color: #0366b6;
+form div {
+    align-items: center;
+    justify-content: center;
+}
+
+#school-image-section {
     display: flex;
     flex-direction: row;
-    width:25% ;
-    margin: 6px;
-   } 
-   .input-row {
-    background-color: #03b60f;
-    display: flex;
-    flex-direction: row;
-    width:25% ;
-    margin: 6px;
-   }
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+#school-image-section img {
+    padding: 0;
+    width: 80%;
+    height: 80%;
+}
+
+@media (max-width:800px) {
+    .parent-control {
+        display: flex;
+        flex-direction: column;
+        justify-items: flex-start;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width:500px) {
+    #school-image-section {
+        flex-direction: column;
+        justify-items: center;
+    }
 }
 
 span {

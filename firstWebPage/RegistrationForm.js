@@ -113,9 +113,9 @@ function validateLogin(event) {
     if ("Username" === userNameInput && "PasswordLogin" === passwordInput) {
         loginForm.submit();
     } else {
-            event.preventDefault();
-            const loginError = document.getElementById("login-error");
-            loginError.innerHTML="Invalid Username / password";
+        event.preventDefault();
+        const loginError = document.getElementById("login-error");
+        loginError.innerHTML = "Invalid Username / password";
     }
 }
 
@@ -147,7 +147,6 @@ function getFormDetails() {
         gender = document.getElementById("gender-female").value;
     } else {
         gender = document.getElementById("gender-male").value;
-        console.log(gender);
     }
     localStorage.setItem("firstName", firstName);
     localStorage.setItem("lastName", lastName);
