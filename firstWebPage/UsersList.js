@@ -10,7 +10,7 @@ async function fetchData() {
 
 function displayFetchedData(jsonData) {
     let table = '<table>';
-    table += '<tr><td>User Id </td><td>Title</td><td>Body</td></tr>';
+    table += '<tr><th>User Id </th><th>Title</th><th>Body</th></tr>';
     jsonData.forEach(data => {
         table += `<tr> <td>${data.id}</td> <td>${data.title}</td> <td>${data.body}</td></tr>`;
     });

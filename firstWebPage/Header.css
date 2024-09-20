@@ -77,3 +77,7 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 2%;
 }
+
+.logout-header-div div {
+    width: 500px;
+}
