@@ -13,19 +13,19 @@ if (form) {
 }
 
 function validateRegistrationForm() {
-    let firstName = firstNameElement.value.trim();
-    let lastName = lastNameElement.value.trim();
-    let phoneNumber = phoneNumberElement.value.trim();
-    let address = addressElement.value.trim();
-    let district = districtElement.value.trim();
-    let dateOfBirth = dateElement.value.trim();
-    let phoneNumberFlag = validatePhoneNumber(phoneNumber);
-    let firstNameFlag = validateName(firstName, "firstName");
-    let lastNameFlag = validateName(lastName, "lastName");
-    let addressFlag = validateAddress(address);
-    let districtFlag = validateDistrict(district);
-    let dateFlag = validateDate(dateOfBirth);
-    let genderFlag = validateGender();
+    const firstName = firstNameElement.value.trim();
+    const lastName = lastNameElement.value.trim();
+    const phoneNumber = phoneNumberElement.value.trim();
+    const address = addressElement.value.trim();
+    const district = districtElement.value.trim();
+    const dateOfBirth = dateElement.value.trim();
+    const phoneNumberFlag = validatePhoneNumber(phoneNumber);
+    const firstNameFlag = validateName(firstName, "firstName");
+    const lastNameFlag = validateName(lastName, "lastName");
+    const addressFlag = validateAddress(address);
+    const districtFlag = validateDistrict(district);
+    const dateFlag = validateDate(dateOfBirth);
+    const genderFlag = validateGender();
     if (phoneNumberFlag && firstNameFlag && lastNameFlag && addressFlag && dateFlag && genderFlag && districtFlag) {
         form.submit();
     }
@@ -46,7 +46,7 @@ function indicationForValidation(element, message) {
 }
 
 function validateName(name, text) {
-    let reg = /^[a-zA-Z ]{2,30}$/;
+    const reg = /^[a-zA-Z ]{2,30}$/;
     if (text == "firstName") {
         if (!reg.test(name)) {
             indicationForValidation(firstNameElement, "Invalid First Name");
@@ -137,12 +137,12 @@ function validateGender() {
 function getFormDetails() {
     validateRegistrationForm();
     let gender;
-    let firstName = firstNameElement.value.trim();
-    let lastName = lastNameElement.value.trim();
-    let phoneNumber = phoneNumberElement.value.trim();
-    let address = addressElement.value.trim();
-    let district = districtElement.value.trim();
-    let dateOfBirth = dateElement.value.trim();
+    const firstName = firstNameElement.value.trim();
+    const lastName = lastNameElement.value.trim();
+    const phoneNumber = phoneNumberElement.value.trim();
+    const address = addressElement.value.trim();
+    const district = districtElement.value.trim();
+    const dateOfBirth = dateElement.value.trim();
     if (document.getElementById("gender-female").checked) {
         gender = document.getElementById("gender-female").value;
     } else {
