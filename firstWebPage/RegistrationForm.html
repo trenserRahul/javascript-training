@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="Header.css">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="..\Asset\Logo.png" alt="" id="logo">
+            <h2 class="header-heading">St Mary's Higher Secondary School</h2>
+        </div>
+        <nav>
+            <a href="Contact.html">Contact</a>
+            <a href="Courses.html">Courses</a>
+            <a href="About.html">About</a>
+            <a href="Help.html">Help</a>
+        </nav>
+        <div id="marquee-div">
+            <marquee behavior="slide" direction="left" loop="5"> Higher Secondary Admission Starts From 05/09/2024 to 15
+                /09/2024 . The Candidates Can Register Online through admissison.dge.kerala.gov.in </marquee>
+        </div>
+    </header>
+
+    <main>
+        <section class="display-session">
+            <form action="DisplayForm.html" id="form" onsubmit="getFormDetails()">
+                <h2>Register</h2>
+                <div class="parent-control">
+                    <label for="firstName">First Name <span>*</span> : </label>
+                    <div class="input-control">
+                        <input type="text" name="firstName" id="firstName" placeholder=" Enter First Name "> <br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="lastName">Last Name <span>*</span> : </label>
+                    <div class="input-control">
+                        <input type="text" name="lastName" id="lastName" placeholder="Enter Last Name "> <br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="dob">Date Of Birth <span>*</span> : </label>
+                    <div class="input-control">
+                        <input type="date" name="dob" id="dateOfBirth" max="2024-08-23"><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="address">Address <span>*</span> : </label>
+                    <div class="input-control">
+                        <textarea id="address" placeholder="Enter your address here..."></textarea><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="gender">Gender <span>*</span> : </label>
+                    <div class="input-control">
+                        <label for="male">Male : </label>
+                        <input type="radio" name="gender" value="male" id="gender-male">
+                        <label for="female">Female : </label>
+                        <input type="radio" name="gender" value="female" id="gender-female"><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="phoneNumber">Phone Number <span>*</span> :</label>
+                    <div class="input-control">
+                        <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Enter phone number"><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="district">District : <span>*</span> </label>
+                    <div class="input-control">
+                        <select name="district" id="district">
+                            <option label="-Select One- "> </option>
+                            <option value="trivandrum"> Trivandrum </option>
+                            <option value="kollam"> Kollam </option>
+                        </select><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                </div>
+                <div id="btn-div">
+                    <br><button type="submit">SignUp</button>&nbsp;
+                    <a href="LoginForm.html">Already registered</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="RegistrationForm.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Header.css">
+    <link rel="stylesheet" href="style.css">
+    <title>LogIn Page</title>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <img src="..\Asset\Logo.png" alt="" id="logo">
+            <h2 class="header-heading">St Mary's Higher Secondary School</h2>
+        </div>
+        <nav>
+            <a href="Contact.html">Contact</a>
+            <a href="Courses.html">Courses</a>
+            <a href="About.html">About</a>
+            <a href="Help.html">Help</a>
+        </nav>
+        <div id="marquee-div">
+            <marquee behavior="slide" direction="left" loop="2"> Higher Secondary Admission Starts From 05/09/2024 to 15
+                /09/2024 . The Candidates Can Register Online through admissison.dge.kerala.gov.in </marquee>
+        </div>
+    </header>
+
+    <main>
+        <section class="display-session">
+            <form action="HomePage.html" id="login-form" onsubmit="validateLogin(event)">
+                <h2>Log In</h2>
+                <div class="parent-control">
+                    <label for="user-name">User Name : </label>
+                    <input type="text" name="user-name" id="user-name-login" placeholder="Enter user name">
+                </div>
+                <div class="parent-control">
+                    <label for="password">Password : </label>
+                    <input type="password" name="password" id="password-login" placeholder="Enter password">
+                </div>
+                <div>
+                    <span id="login-error"></span>
+                </div>
+                <div id="btn-div">
+                    <button type="submit" id="login-btn">Log In</button>
+                    &nbsp;
+                    <a href="RegistrationForm.html"> SignUp</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="RegistrationForm.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Users.css">
+    <link rel="stylesheet" href="Header.css">
+    <title>Users</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="..\Asset\Logo.png" alt="" id="logo">
+            <h2 class="header-heading">St Mary's Higher Secondary School</h2>
+        </div>
+        <nav>
+            <a href="RegistrationForm.html">Home</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Courses.html">Courses</a>
+            <a href="About.html">About</a>
+            <a href="Help.html">Help</a>
+        </nav>
+        <div id="marquee-div">
+            <marquee behavior="slide" direction="left" loop="5"> Higher Secondary Admission Starts From 05/09/2024 to 15
+                /09/2024 . The Candidates Can Register Online through admissison.dge.kerala.gov.in </marquee>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <form action="DisplayForm.html" id="form" onsubmit="getFormDetails()">
+                <h2>User Details</h2>
+                <div class="parent-control">
+                    <div class="input-control">
+                        <input type="search" name="search-user" id="search-user" placeholder="Enter user Id to search">
+                        <button type="button" onclick="fetchData()">Search</button>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="user-id">User Id : </label>
+                    <div class="input-control">
+                        <input type="text" name="user-id" id="user-id" readonly><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div class="parent-control">
+                    <label for="title">Title : </label>
+                    <div class="input-control">
+                        <input type="text" name="title" id="title" placeholder="Enter title "> <br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+
+                <div class="parent-control">
+                    <label for="body">Body : </label>
+                    <div class="input-control">
+                        <textarea id="body" placeholder="Enter the content here..."></textarea><br>
+                        <span class="error"></span>
+                    </div>
+                </div>
+                <div id="btn-div">
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="Users.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#marquee-div {
+    margin: 0;
+    background-color: #A6D1E6;
+    padding: 10px;
+    color: black;
+}
+
+.logout-header-div {
+    justify-content: space-between;
+}
+
+header div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    margin-top: 0%;
+}
+
+#logo {
+    width: 4%;
+    height: 6%;
+    margin: 1px;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a:hover {
+    background-color: white;
+    color: black;
+}
+
+nav {
+    background-color: rgb(43, 76, 236);
+    margin: 0px;
+    padding: 8px;
+}
+
+#btn-logout {
+    font-size: large;
+    text-decoration: none;
+    color: #2e95e4;
+    padding-right: 10px;
+}
+
+#btn-logout:hover {
+    font-size: x-large;
+}
+
+#logo {
+    padding-left: 5px;
+    width: 70px;
+    height: 70px;
+    margin: 1px;
+}
+
+.header-heading {
+    text-align: left;
+    color: rgb(14, 32, 219);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 2%;
+}
+
+.logout-header-div div {
+    width: 500px;
+}
