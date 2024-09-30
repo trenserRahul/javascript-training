@@ -1,16 +1,16 @@
 window.onload = () => {
-  fetchCurrentWeather("Thiruvananthapuram");
-  fetchFiveDayWeather("Thiruvananthapuram");
+  const defaultCity ="Thiruvananthapuram";
+  fetchCurrentWeather(defaultCity);
+  fetchFiveDayWeather(defaultCity);
 };
 
 const key = "e738f6cc35361d59bb2303170f864324";
-const cityNameContainer = document.querySelector("#city-name");
-const highlightDetails = document.querySelector("#highlight-details");
 const weatherContainer = document.querySelector("#weather-details");
 const weatherImageContainer = document.querySelector("#weather-image");
 const upcomingWeatherContainer = document.querySelector("#upcoming-weather");
 const currentWeatherContainer = document.querySelector("#current-weather");
 const rightContainerElement = document.querySelector("#right-container");
+const weatherIcons = {};
 
 function getWeatherByCity(event) {
   event.preventDefault();
@@ -30,8 +30,25 @@ function fetchCurrentWeather(city) {
       throw new Error("Something Went Wrong");
     })
     .then((jsonResponse) => getCurrentWeatherUpdate(jsonResponse))
-    .catch((error) => {
+    .catch(() => {
       displayError(currentWeatherContainer);
+    });
+}
+
+async function fetchFiveDayWeather(city) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${key}`
+  )
+    .then((result) => {
+      if (result.ok) {
+        upcomingWeatherContainer.innerHTML = "";
+        return result.json();
+      }
+      throw new Error("Wrong data");
+    })
+    .then((upcomingDayDetails) => getUpcomingDayUpdate(upcomingDayDetails))
+    .catch(() => {
+      displayError(upcomingWeatherContainer);
     });
 }
 
@@ -46,20 +63,21 @@ function getCurrentWeatherUpdate(weatherData) {
   } = weatherData;
   currentWeatherContainer.classList.remove("error-indicator");
   displayCity(city);
-  displayWetherIcon(weather);
+  displayWeatherIcon(weather);
   displayMain(upcomingDayWeatherDetails);
   displayCurrentDateTime(currentDateTime);
   displaySunTime(timeDetails);
   displaywind(wind);
 }
 
-function getupcomingDayUpdate(upcomingWeatherData) {
+function getUpcomingDayUpdate(upcomingWeatherData) {
   const { list: upcomingDayWeatherDetails } = upcomingWeatherData;
   upcomingWeatherContainer.classList.remove("error-indicator");
-  filterupcomingDayDetails(upcomingDayWeatherDetails);
+  filterUpcomingDayDetails(upcomingDayWeatherDetails);
 }
 
 function displayCity(city) {
+  const cityNameContainer = document.querySelector("#city-name");
   const cityElement = document.createElement("p");
   cityElement.innerText = city;
   cityNameContainer.innerHTML = "";
@@ -67,17 +85,18 @@ function displayCity(city) {
 }
 
 function displayMain(main) {
+  const highlightDetails = document.querySelector("#highlight-details");
   const humidityElement = document.createElement("p");
-  const temparatureElement = document.createElement("p");
+  const temperatureElement = document.createElement("p");
   const superScriptElement = document.createElement("sup");
   const celsiusElement = document.createElement("span");
   superScriptElement.innerText = "o";
   celsiusElement.innerText = "C";
-  temparatureElement.setAttribute("id", "temperature");
+  temperatureElement.setAttribute("id", "temperature");
   humidityElement.innerText = ` Humidity : ${main.humidity}%`;
-  temparatureElement.innerText = `  ${main.temp} `;
+  temperatureElement.innerText = `  ${main.temp} `;
   highlightDetails.innerHTML = "";
-  highlightDetails.appendChild(temparatureElement);
+  highlightDetails.appendChild(temperatureElement);
   highlightDetails.appendChild(superScriptElement);
   highlightDetails.appendChild(celsiusElement);
   rightContainerElement.innerHTML = "";
@@ -85,19 +104,20 @@ function displayMain(main) {
 }
 
 function displayCurrentDateTime(currentDateTime) {
-  const currentTime = getTimeFromTimeStamp(currentDateTime);
-  const currentDay = getDayFromTimeStamp(currentDateTime);
   const currentTimeElement = document.createElement("p");
   const currentDayElement = document.createElement("p");
-  currentTimeElement.innerText = currentTime;
-  currentDayElement.innerText = currentDay;
+  currentTimeElement.innerText = getTimeFromTimeStamp(currentDateTime);
+  currentDayElement.innerText = getDayFromTimeStamp(currentDateTime);
   rightContainerElement.appendChild(currentTimeElement);
   rightContainerElement.appendChild(currentDayElement);
 }
 
 function displayWeatherDescription(weather) {
   const weatherDescriptionElement = document.createElement("span");
-  weatherDescriptionElement.innerText = weather[0].description;
+  const description = weather[0].description;
+  weatherDescriptionElement.innerText = weather[0].description
+    .toString()
+    .toUpperCase();
   weatherImageContainer.appendChild(weatherDescriptionElement);
 }
 
@@ -109,7 +129,7 @@ async function getIconUrl(iconId) {
   return URL.createObjectURL(imageBlob);
 }
 
-async function displayWetherIcon(weather) {
+async function displayWeatherIcon(weather) {
   const iconId = weather[0].icon;
   const imageUrl = await getIconUrl(iconId);
   const imageElement = document.createElement("img");
@@ -135,6 +155,13 @@ function displaySunTime(timeDetails) {
   weatherContainer.appendChild(sunSetElement);
 }
 
+function displaywind(wind) {
+  const windSpeed = wind.speed;
+  const windElement = document.createElement("p");
+  windElement.innerText = ` Wind speed : ${windSpeed} m/s`;
+  weatherContainer.appendChild(windElement);
+}
+
 function getTimeFromTimeStamp(timeStamp) {
   const timeDetail = new Date(timeStamp * 1000);
   const hour = timeDetail.getHours();
@@ -151,7 +178,7 @@ function getDateFromTimeStamp(timeStamp) {
 
 function getDayFromTimeStamp(timeStamp) {
   const timeDetail = new Date(timeStamp * 1000);
-  const Day = [
+  const day = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -160,31 +187,8 @@ function getDayFromTimeStamp(timeStamp) {
     "Friday",
     "Saturday",
   ];
-  const readableDay = Day[timeDetail.getDay()];
+  const readableDay = day[timeDetail.getDay()];
   return readableDay;
-}
-
-function displaywind(wind) {
-  const windSpeed = wind.speed;
-  const windElement = document.createElement("p");
-  windElement.innerText = ` Wind speed : ${windSpeed} m/s`;
-  weatherContainer.appendChild(windElement);
-}
-
-async function fetchFiveDayWeather(city) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${key}`
-  )
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      throw new Error("Wrong data");
-    })
-    .then((upcomingDayDetails) => getupcomingDayUpdate(upcomingDayDetails))
-    .catch((error) => {
-      displayError(upcomingWeatherContainer);
-    });
 }
 
 function displayError(containerElement) {
@@ -196,36 +200,36 @@ function displayError(containerElement) {
   upcomingWeatherContainer.appendChild(errorDiv);
 }
 
-function filterupcomingDayDetails(upcomingWetherList) {
-  const todaysDate = upcomingWetherList[0].dt_txt.slice(0, 10);
-  upcomingWetherList.forEach((upcomingWetherListElement) => {
+function filterUpcomingDayDetails(upcomingWeatherList) {
+  const todaysDate = upcomingWeatherList[0].dt_txt.slice(0, 10);
+  upcomingWeatherList.forEach((upcomingWeatherListElement) => {
     if (
-      upcomingWetherListElement.dt_txt.includes("12:00:00") &&
-      upcomingWetherListElement.dt_txt.slice(0, 10) != todaysDate
+      upcomingWeatherListElement.dt_txt.includes("12:00:00") &&
+      upcomingWeatherListElement.dt_txt.slice(0, 10) != todaysDate
     ) {
-      displayupcomingDayWeatherUpdates(upcomingWetherListElement);
+      displayUpcomingDayWeatherUpdates(upcomingWeatherListElement);
     }
   });
 }
 
-async function displayupcomingDayWeatherUpdates(upcomingDayWeatherDetails) {
-  upcomingWeatherContainer.innerHTML = "";
+async function displayUpcomingDayWeatherUpdates(upcomingDayWeatherDetails) {
+  const weatherImage = document.createElement("img");
   const divContainerElement = document.createElement("div");
   const timeElement = document.createElement("p");
   const humidity = document.createElement("p");
   const description = document.createElement("p");
-  const dateElement = document.createElement("p");
+  const dayElement = document.createElement("p");
   divContainerElement.className = "weather-detail-wrap";
-  dateElement.setAttribute("class", "highlight");
+  dayElement.setAttribute("class", "highlight");
   const temperatureDiv = upcomingDayTemperature(upcomingDayWeatherDetails);
-  const weatherImage = await upcomingDayWeatherIcon(upcomingDayWeatherDetails);
   timeElement.innerText = "12:00 PM";
-  humidity.innerText = `Humidity : ${upcomingDayWeatherDetails.main.humidity} %`;
+  humidity.innerText = `Humidity : ${upcomingDayWeatherDetails.main.humidity}%`;
   description.innerText = upcomingDayWeatherDetails.weather[0].description;
   const timeStamp = upcomingDayWeatherDetails.dt;
-  dateElement.innerText = getDayFromTimeStamp(timeStamp);
+  dayElement.innerText = getDayFromTimeStamp(timeStamp);
+  upcomingDayWeatherIcon(upcomingDayWeatherDetails, weatherImage);
   const createdElements = [
-    dateElement,
+    dayElement,
     timeElement,
     weatherImage,
     description,
@@ -240,24 +244,27 @@ async function displayupcomingDayWeatherUpdates(upcomingDayWeatherDetails) {
 function upcomingDayTemperature(upcomingDayWeatherDetails) {
   const temperatureDiv = document.createElement("div");
   temperatureDiv.setAttribute("id", "upcoming-temperature");
-  const temparature = document.createElement("p");
+  const temperature = document.createElement("p");
   const superScriptElement = document.createElement("sup");
   const celsiusElement = document.createElement("span");
   superScriptElement.innerText = "o";
   celsiusElement.innerText = "C";
-  temparature.innerText = upcomingDayWeatherDetails.main.temp;
-  temperatureDiv.appendChild(temparature);
+  temperature.innerText = upcomingDayWeatherDetails.main.temp;
+  temperatureDiv.appendChild(temperature);
   temperatureDiv.appendChild(superScriptElement);
   temperatureDiv.appendChild(celsiusElement);
   return temperatureDiv;
 }
 
-async function upcomingDayWeatherIcon(upcomingDayWeatherDetails) {
-  const weatherImage = document.createElement("img");
+async function upcomingDayWeatherIcon(upcomingDayWeatherDetails, weatherImage) {
   const iconId = upcomingDayWeatherDetails.weather[0].icon;
-  iconUrl = await getIconUrl(iconId);
-  weatherImage.src = iconUrl;
-  return weatherImage;
+  if (weatherIcons[iconId]) {
+    weatherImage.src = weatherIcons[iconId];
+  } else {
+    iconUrl = await getIconUrl(iconId);
+    weatherImage.src = iconUrl;
+    weatherIcons[iconId] = iconUrl;
+  }
 }
 
 function appendElementToContainer(newElements, divContainerElement) {
