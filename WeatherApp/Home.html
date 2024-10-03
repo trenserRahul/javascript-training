@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Home.css" />
+    <title>Weather App</title>
+  </head>
+
+  <body>
+    <main>
+      <section id="weather-container">
+        <div id="search-box">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Enter your city"
+          />
+          <button type="submit" onclick="getWeatherByCity(event)">
+            Search
+          </button>
+        </div>
+        <div id="current-weather">
+          <div id="city-name"></div>
+          <div id="whether-details-wraper">
+            <div id="left-container">
+              <div id="weather-image"></div>
+            </div>
+            <div id="middle-container">
+              <div id="highlight-details"></div>
+            </div>
+            <div id="right-container"></div>
+          </div>
+          <div id="weather-details"></div>
+        </div>
+        <div id="upcoming-weather"></div>
+      </section>
+    </main>
+    <script src="Home.js"></script>
+  </body>
+</html>
