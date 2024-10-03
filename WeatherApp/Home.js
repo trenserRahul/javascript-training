@@ -1,5 +1,5 @@
 window.onload = () => {
-  const defaultCity ="Thiruvananthapuram";
+  const defaultCity = "Thiruvananthapuram";
   fetchCurrentWeather(defaultCity);
   fetchFiveDayWeather(defaultCity);
 };
@@ -114,10 +114,7 @@ function displayCurrentDateTime(currentDateTime) {
 
 function displayWeatherDescription(weather) {
   const weatherDescriptionElement = document.createElement("span");
-  const description = weather[0].description;
-  weatherDescriptionElement.innerText = weather[0].description
-    .toString()
-    .toUpperCase();
+  weatherDescriptionElement.innerText = toTitleCase(weather[0].description);
   weatherImageContainer.appendChild(weatherDescriptionElement);
 }
 
@@ -224,7 +221,9 @@ async function displayUpcomingDayWeatherUpdates(upcomingDayWeatherDetails) {
   const temperatureDiv = upcomingDayTemperature(upcomingDayWeatherDetails);
   timeElement.innerText = "12:00 PM";
   humidity.innerText = `Humidity : ${upcomingDayWeatherDetails.main.humidity}%`;
-  description.innerText = upcomingDayWeatherDetails.weather[0].description;
+  description.innerText = toTitleCase(
+    upcomingDayWeatherDetails.weather[0].description
+  );
   const timeStamp = upcomingDayWeatherDetails.dt;
   dayElement.innerText = getDayFromTimeStamp(timeStamp);
   upcomingDayWeatherIcon(upcomingDayWeatherDetails, weatherImage);
@@ -270,4 +269,13 @@ async function upcomingDayWeatherIcon(upcomingDayWeatherDetails, weatherImage) {
 function appendElementToContainer(newElements, divContainerElement) {
   divContainerElement.appendChild(newElements);
   upcomingWeatherContainer.appendChild(divContainerElement);
+}
+
+function toTitleCase(stringInput) {
+  const splitInput = stringInput.split(" ");
+  for (let i = 0; i < splitInput.length; i++) {
+    splitInput[i] =
+      splitInput[i].charAt(0).toUpperCase() + splitInput[i].slice(1);
+  }
+  return splitInput.join(" ");
 }
